@@ -243,6 +243,8 @@ With `--details` each item has the same fields as `video`.
 2. `videos` and `hashtag` ask for TikTok's embed pages (`tiktok.com/embed/@user` and `tiktok.com/embed/tag/name`), the pages other sites use to show TikTok widgets. They carry a short video list as JSON in a `<script id="__FRONTITY_CONNECT_STATE__">` tag. `comments` calls the comments endpoint the web page uses (`/api/comment/list/`), which answers with plain JSON.
 3. Each reply is cleaned into the fields above. Counts become integers, times become ISO 8601 UTC, and the raw blobs are dropped.
 
+A longer walkthrough with timed runs, a CSV example and datacenter vs residential results: [How to scrape TikTok with Python](https://toolzerhub.com/blog/how-to-scrape-tiktok?utm_source=github&utm_medium=readme&utm_campaign=tiktok-scraper).
+
 ## Limits
 
 - Public data only.
