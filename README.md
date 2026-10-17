@@ -6,7 +6,7 @@
 
 Scrape public TikTok profiles, videos, comments and hashtags with Python. No login, no API key, one file.
 
-> **Need this at scale?** The script is for learning and small jobs. The [ToolzerHub TikTok API](https://toolzerhub.com/apis/tiktok?utm_source=github&utm_medium=readme&utm_campaign=tiktok-scraper) returns profiles, videos, full paged hashtag video lists and videos by sound (plus TikTok Shop products) as JSON from any server, with no blocks to handle. 100 free credits a month, no card needed.
+> **Need this at scale?** The script is for learning and small jobs. The [ToolzerHub TikTok API](https://toolzerhub.com/apis/tiktok?utm_source=github&utm_medium=readme&utm_campaign=tiktok-scraper) returns profiles, videos, paged hashtag video lists (over 100 per tag) and videos by sound (plus TikTok Shop products) as JSON from any server, with no blocks to handle. 100 free credits a month, no card needed.
 
 ## What it scrapes
 
@@ -277,7 +277,7 @@ Scraping publicly available data is generally allowed in many places, but it dep
 TikTok blocks most cloud and datacenter IP addresses and some residential ones. Use a home connection or a sticky US residential proxy, and slow down.
 
 **Can it get every video under a hashtag or a sound?**
-No. The script only sees a short top list. The [ToolzerHub API](https://toolzerhub.com/apis/tiktok?utm_source=github&utm_medium=readme&utm_campaign=tiktok-scraper) pages through the full video list for a hashtag and for a sound.
+No. The script only sees a short top list. The [ToolzerHub API](https://toolzerhub.com/apis/tiktok?utm_source=github&utm_medium=readme&utm_campaign=tiktok-scraper) pages through a hashtag's or a sound's video list, well past the script's top list (110 to 190 videos per tag in our tests).
 
 ## Related scrapers
 
