@@ -247,6 +247,7 @@ With `--details` each item has the same fields as `video`.
 
 - Public data only.
 - `videos` returns about 11 videos and has no next page. A creator's full video list and keyword search are not available to this script: TikTok only serves them to its own signed web app.
+- `comments` returns top-level comments only, not the replies under them. On long threads TikTok marks the list finished early, so the script keeps stepping until three pages in a row add nothing: a video showing 3,068 comments gave 1,593 top-level ones on 2026-10-17.
 - `hashtag` returns the totals and a short list of top videos, not the whole hashtag. TikTok hides a few very big tags (for example `travel`) from its embed pages, and the script then says so.
 - `play_url` from `video` needs the cookies the page request set and a `Referer: https://www.tiktok.com/` header. The `play_url` in `videos` and `hashtag` opens as it is. All of these links expire after a day or two.
 - TikTok blocks many datacenter IPs, and some residential ones too. The reply is a tiny "Please wait..." page or an HTTP 503, and the script exits with a "TikTok blocked this IP" error. In our runs every US residential exit worked and several exits elsewhere did not. Run it from a home connection, or pass `--proxy` (a sticky US residential proxy works best).

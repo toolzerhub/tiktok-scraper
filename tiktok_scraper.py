@@ -194,9 +194,9 @@ class TikTok:
 
     def comments(self, url_or_id, limit=50):
         _, vid = video_id_of(url_or_id)
-        out, cursor = [], 0
-        while len(out) < limit:
-            api = f"{BASE}/api/comment/list/?aid=1988&aweme_id={vid}&count={min(50, limit - len(out))}&cursor={cursor}"
+        out, seen, cursor, empty = [], set(), 0, 0
+        while len(out) < limit and empty < 3:
+            api = f"{BASE}/api/comment/list/?aid=1988&aweme_id={vid}&count=50&cursor={cursor}"
             resp = self._get(api, f"comments of {vid}")
             try:
                 data = resp.json()
@@ -205,7 +205,12 @@ class TikTok:
             if "total" not in data and not out:
                 # A video that does not exist answers with no "total" at all.
                 raise ScrapeError(f"Video not found, or comments are turned off: {vid}")
+            new = 0
             for c in data.get("comments") or []:
+                if c.get("cid") in seen:
+                    continue
+                seen.add(c.get("cid"))
+                new += 1
                 user = c.get("user") or {}
                 out.append({
                     "id": c.get("cid"),
@@ -216,9 +221,10 @@ class TikTok:
                     "username": user.get("unique_id"),
                     "nickname": user.get("nickname"),
                 })
-            if not data.get("has_more") or not data.get("comments"):
-                break
-            cursor = data.get("cursor")
+            # On long threads has_more turns false early and a page can come back
+            # empty mid-list, so keep stepping until three pages in a row add nothing.
+            empty = 0 if new else empty + 1
+            cursor += 50
         return out[:limit]
 
     # --- hashtags --------------------------------------------------------
