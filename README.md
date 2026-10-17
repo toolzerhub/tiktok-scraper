@@ -282,8 +282,10 @@ No. The script only sees a short top list. The [ToolzerHub API](https://toolzerh
 ## Related scrapers
 
 - [instagram-scraper](https://github.com/toolzerhub/instagram-scraper): public Instagram profiles, posts, comments and search
-- [reddit-scraper](https://github.com/toolzerhub/reddit-scraper): public subreddits, posts, comments, search and user posts
 - [threads-scraper](https://github.com/toolzerhub/threads-scraper): public Threads profiles, posts, replies and search
+- [reddit-scraper](https://github.com/toolzerhub/reddit-scraper): public subreddits, posts, comments, search and user posts
+- [linkedin-scraper](https://github.com/toolzerhub/linkedin-scraper): public LinkedIn jobs, companies, profiles and posts
+- [google-maps-scraper](https://github.com/toolzerhub/google-maps-scraper): public Google Maps places, details and reviews
 
 ## Legal and responsible use
 
